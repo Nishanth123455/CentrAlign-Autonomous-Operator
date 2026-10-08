@@ -92,43 +92,54 @@ Detect mismatch → require human approval → stop when approval is rejected
 
 ## Architecture
 
-User Request
-    ↓
-Task Understanding
-    ↓
-Task Planner
-    ↓
-Company Context + Company Data
-    ↓
-Policy Engine
-    ↓
-    ┌─────────────────────────────┐
-    │                             │
-    ▼                             ▼
-Automatic Processing       Human Approval
-    │                             │
-    └──────────────┬──────────────┘
-                   ↓
-             Tool Executor
-                   ↓
-        ┌──────────┴──────────┐
-        │                     │
-        ▼                     ▼
- Company Data            Browser Tool
-                              ↓
-                           Playwright
-                              ↓
-                        Finance Portal
-                              ↓
-                         Observation
-                              ↓
-                      Recovery / Adapt
-                              ↓
-                         Verification
-                              ↓
-                         Audit Trail
-                              ↓
-                        Final Result
+    User Request
+         |
+         v
+    Task Understanding
+         |
+         v
+    Task Planner
+         |
+         v
+    Company Context + Company Data
+         |
+         v
+    Policy Engine
+         |
+         +-----------------------------+
+         |                             |
+         v                             v
+    Automatic Processing       Human Approval
+         |                             |
+         +-------------+---------------+
+                       |
+                       v
+                 Tool Executor
+                       |
+              +--------+--------+
+              |                 |
+              v                 v
+       Company Data        Browser Tool
+                                |
+                             Playwright
+                                |
+                                v
+                         Finance Portal
+                                |
+                                v
+                           Observation
+                                |
+                                v
+                         Recovery / Adapt
+                                |
+                                v
+                           Verification
+                                |
+                                v
+                           Audit Trail
+                                |
+                                v
+                           Final Result
 
 ## Main Components
 
@@ -136,49 +147,49 @@ Automatic Processing       Human Approval
 
 Contains the autonomous operator logic.
 
-- agent.py — coordinates the complete workflow
-- understanding.py — extracts the intended task and invoice ID from the request
-- planner.py — creates a plan using company context
-- policy_engine.py — applies company invoice-processing rules
-- tool_selector.py — maps plan steps to controlled tools
-- tool_executor.py — executes the selected tools
-- observer.py — interprets execution results
-- recovery.py — handles recoverable failures
-- approval.py — manages human approval decisions
-- state.py — stores task state and execution context
-- audit.py — generates and saves audit evidence
+- `agent.py` — coordinates the complete workflow
+- `understanding.py` — extracts the intended task and invoice ID from the request
+- `planner.py` — creates a plan using company context
+- `policy_engine.py` — applies company invoice-processing rules
+- `tool_selector.py` — maps plan steps to controlled tools
+- `tool_executor.py` — executes the selected tools
+- `observer.py` — interprets execution results
+- `recovery.py` — handles recoverable failures
+- `approval.py` — manages human approval decisions
+- `state.py` — stores task state and execution context
+- `audit.py` — generates and saves audit evidence
 
 ### app/models
 
 Contains the LLM integration.
 
-- llm_client.py — communicates with the Google Gemini API
+- `llm_client.py` — communicates with the Google Gemini API
 
 ### app/tools
 
 Contains controlled capabilities available to the operator.
 
-- browser_tool.py — browser automation using Playwright
-- company_data_tool.py — structured company data lookup
+- `browser_tool.py` — browser automation using Playwright
+- `company_data_tool.py` — structured company data lookup
 
 ### app/retrieval
 
 Provides access to company policy context.
 
-- company_context.py — retrieves relevant company policy documents
+- `company_context.py` — retrieves relevant company policy documents
 
 ### app/verification
 
 Provides independent verification of final system state.
 
-- verifier.py — checks the final invoice status through the finance portal
+- `verifier.py` — checks the final invoice status through the finance portal
 
 ### app/ui
 
 Provides the user-facing autonomous operator interface.
 
-- operator_app.py — Flask application
-- templates/operator.html — operator dashboard
+- `operator_app.py` — Flask application
+- `templates/operator.html` — operator dashboard
 
 ### portal
 
@@ -296,9 +307,9 @@ Audit reports are stored in:
 - Python 3.12
 - Flask
 - Google Gemini API
-- google-genai
+- `google-genai`
 - Playwright
-- python-dotenv
+- `python-dotenv`
 - CSV-based company data
 - HTML/CSS
 
@@ -314,11 +325,11 @@ Install the Playwright Chromium browser:
 
     python -m playwright install chromium
 
-Create a .env file in the project root containing:
+Create a `.env` file in the project root containing:
 
     GEMINI_API_KEY=your_gemini_api_key
 
-Do not commit the .env file or API keys to GitHub.
+Do not commit the `.env` file or API keys to GitHub.
 
 ## Running the Prototype
 
@@ -348,7 +359,7 @@ Open the operator interface in a browser and submit a task such as:
 
 ## Testing
 
-The tests directory contains component and integration tests covering:
+The `tests` directory contains component and integration tests covering:
 
 - Gemini connectivity
 - task understanding
@@ -369,34 +380,34 @@ The tests directory contains component and integration tests covering:
 
 ## Project Structure
 
-CentrAlign-Autonomous-Operator/
-├── app/
-│   ├── agent/
-│   ├── models/
-│   ├── retrieval/
-│   ├── tools/
-│   ├── ui/
-│   │   ├── templates/
-│   │   │   └── operator.html
-│   │   └── operator_app.py
-│   └── verification/
-├── company/
-│   ├── data/
-│   │   ├── audit/
-│   │   ├── invoice_records.csv
-│   │   ├── purchase_orders.csv
-│   │   └── vendors.csv
-│   ├── invoices/
-│   ├── policies/
-│   └── purchase_orders/
-├── portal/
-│   ├── app.py
-│   └── templates/
-├── tests/
-├── .env
-├── .gitignore
-├── README.md
-└── requirements.txt
+    CentrAlign-Autonomous-Operator/
+    ├── app/
+    │   ├── agent/
+    │   ├── models/
+    │   ├── retrieval/
+    │   ├── tools/
+    │   ├── ui/
+    │   │   ├── templates/
+    │   │   │   └── operator.html
+    │   │   └── operator_app.py
+    │   └── verification/
+    ├── company/
+    │   ├── data/
+    │   │   ├── audit/
+    │   │   ├── invoice_records.csv
+    │   │   ├── purchase_orders.csv
+    │   │   └── vendors.csv
+    │   ├── invoices/
+    │   ├── policies/
+    │   └── purchase_orders/
+    ├── portal/
+    │   ├── app.py
+    │   └── templates/
+    ├── tests/
+    ├── .env
+    ├── .gitignore
+    ├── README.md
+    └── requirements.txt
 
 ## Limitations
 
