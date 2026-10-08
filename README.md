@@ -289,7 +289,7 @@ Each task produces a persistent JSON audit report containing information such as
 
 Audit reports are stored in:
 
-company/data/audit/
+    company/data/audit/
 
 ## Technology Stack
 
