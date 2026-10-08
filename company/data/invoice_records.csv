@@ -1,6 +1,6 @@
 invoice_id,vendor_id,po_id,description,amount,status
-INV1001,V001,PO1001,Office laptops and accessories,42000,processed
-INV1002,V002,PO1002,Network equipment,68000,processed
+INV1001,V001,PO1001,Office laptops and accessories,42000,pending
+INV1002,V002,PO1002,Network equipment,68000,pending
 INV1003,V003,PO1003,Office stationery,18500,paid
 INV1004,V001,PO1004,Printer supplies,15000,pending
 INV1005,V004,PO1005,Cloud storage services,56000,pending
