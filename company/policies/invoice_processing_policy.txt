@@ -1,0 +1,40 @@
+NexaCore Solutions
+Invoice Processing Policy
+
+1. Invoice Validation
+- Every invoice must have a valid invoice number.
+- The vendor must exist in the approved vendor records.
+- The invoice amount must be checked against the related purchase order.
+- The invoice must not already be marked as paid.
+
+2. Automatic Processing
+An invoice may be processed automatically when:
+- The invoice matches an approved purchase order.
+- The invoice amount matches the purchase order amount.
+- The vendor is approved.
+- The invoice is not already paid.
+- The invoice amount is ₹50,000 or less.
+
+3. Human Approval
+Human approval is required when:
+- The invoice amount is greater than ₹50,000.
+- The invoice amount does not match the purchase order.
+- The vendor cannot be verified.
+- The agent finds conflicting information.
+
+4. Verification
+An invoice must not be considered completed merely because
+an action was submitted.
+
+The system must verify that the invoice status in the
+company system reflects the intended final state.
+
+5. Evidence
+The completed task should provide:
+- Invoice number
+- Vendor
+- Amount
+- Final status
+- Relevant policy used
+- Actions performed
+- Verification result

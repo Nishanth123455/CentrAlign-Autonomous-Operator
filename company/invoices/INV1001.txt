@@ -1,0 +1,14 @@
+NexaCore Solutions
+Invoice
+
+Invoice Number: INV1001
+Vendor: Acme Supplies
+Vendor ID: V001
+Purchase Order: PO1001
+
+Description:
+Office laptops and accessories
+
+Invoice Amount: ₹42,000
+Invoice Date: 08-10-2026
+Payment Status: Pending

@@ -1,0 +1,12 @@
+NexaCore Solutions
+Purchase Order
+
+PO Number: PO1001
+Vendor: Acme Supplies
+Vendor ID: V001
+
+Description:
+Office laptops and accessories
+
+Approved Amount: ₹42,000
+Status: Approved

@@ -1,0 +1,30 @@
+NexaCore Solutions
+Invoice Approval Policy
+
+1. Automatic Approval
+Invoices of ₹50,000 or less may be processed automatically
+when all invoice validation requirements are satisfied.
+
+2. Manager Approval
+Invoices above ₹50,000 require manager approval before
+the invoice can be processed.
+
+3. Exception Approval
+Manager approval is also required when:
+- Invoice details conflict with the purchase order.
+- Vendor information cannot be verified.
+- Required information is missing.
+- The agent detects a policy exception.
+
+4. Human Decision
+The agent must stop before performing the restricted action
+and request human approval.
+
+The agent must clearly explain:
+- Why approval is required.
+- What information was verified.
+- What action is waiting for approval.
+
+5. After Approval
+Once approval is received, the agent may continue the
+remaining permitted steps and must verify the final result.

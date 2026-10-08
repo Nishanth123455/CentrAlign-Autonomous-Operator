@@ -1,0 +1,12 @@
+NexaCore Solutions
+Purchase Order
+
+PO Number: PO1002
+Vendor: TechNova Systems
+Vendor ID: V002
+
+Description:
+Network equipment
+
+Approved Amount: ₹68,000
+Status: Approved

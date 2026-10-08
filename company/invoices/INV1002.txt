@@ -1,0 +1,14 @@
+NexaCore Solutions
+Invoice
+
+Invoice Number: INV1002
+Vendor: TechNova Systems
+Vendor ID: V002
+Purchase Order: PO1002
+
+Description:
+Network equipment
+
+Invoice Amount: ₹68,000
+Invoice Date: 08-10-2026
+Payment Status: Pending

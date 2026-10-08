@@ -1,0 +1,12 @@
+NexaCore Solutions
+Purchase Order
+
+PO Number: PO1004
+Vendor: Acme Supplies
+Vendor ID: V001
+
+Description:
+Printer supplies
+
+Approved Amount: ₹12,500
+Status: Approved

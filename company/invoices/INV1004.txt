@@ -1,0 +1,14 @@
+NexaCore Solutions
+Invoice
+
+Invoice Number: INV1004
+Vendor: Acme Supplies
+Vendor ID: V001
+Purchase Order: PO1004
+
+Description:
+Printer supplies
+
+Invoice Amount: ₹15,000
+Invoice Date: 08-10-2026
+Payment Status: Pending

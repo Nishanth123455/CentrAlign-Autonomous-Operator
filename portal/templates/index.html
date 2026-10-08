@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NexaCore Finance Portal</title>
+</head>
+<body>
+    <h1>NexaCore Finance Portal</h1>
+    <p>Internal Invoice Operations</p>
+
+    <h2>Invoice Lookup</h2>
+
+    <form method="get" action="/">
+        <label for="invoice_id">Invoice ID:</label>
+
+        <input
+            type="text"
+            id="invoice_id"
+            name="invoice_id"
+            value="{{ invoice_id }}"
+            placeholder="e.g. INV1001"
+            required
+        >
+
+        <button id="search_button" type="submit">
+            Search
+        </button>
+    </form>
+
+    {% if searched %}
+        {% if invoice %}
+
+            <h2 id="invoice_details">Invoice Details</h2>
+
+            <p>
+                <strong>Invoice ID:</strong>
+                <span id="invoice_id_value">
+                    {{ invoice.invoice_id }}
+                </span>
+            </p>
+
+            <p>
+                <strong>Vendor ID:</strong>
+                <span id="vendor_id">
+                    {{ invoice.vendor_id }}
+                </span>
+            </p>
+
+            <p>
+                <strong>Purchase Order:</strong>
+                <span id="purchase_order">
+                    {{ invoice.po_id }}
+                </span>
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                <span id="description">
+                    {{ invoice.description }}
+                </span>
+            </p>
+
+            <p>
+                <strong>Amount:</strong>
+                <span id="invoice_amount">
+                    ₹{{ invoice.amount }}
+                </span>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span id="invoice_status">
+                    {{ invoice.status }}
+                </span>
+            </p>
+
+            <form method="post" action="/process">
+                <input
+                    type="hidden"
+                    name="invoice_id"
+                    value="{{ invoice.invoice_id }}"
+                >
+
+                <input
+                    type="hidden"
+                    id="approval_granted"
+                    name="approval_granted"
+                    value="false"
+                >
+
+                <button id="process_invoice_button" type="submit">
+                    Process Invoice
+                </button>
+            </form>
+
+        {% else %}
+
+            <p id="invoice_not_found">
+                <strong>Invoice not found.</strong>
+            </p>
+
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>

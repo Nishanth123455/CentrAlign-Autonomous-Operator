@@ -1,0 +1,6 @@
+po_id,vendor_id,description,amount,status
+PO1001,V001,Office laptops and accessories,42000,approved
+PO1002,V002,Network equipment,68000,approved
+PO1003,V003,Office stationery,18500,approved
+PO1004,V001,Printer supplies,12500,approved
+PO1005,V004,Cloud storage services,56000,pending

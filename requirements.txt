@@ -1,0 +1,4 @@
+Flask
+google-genai
+playwright
+python-dotenv
