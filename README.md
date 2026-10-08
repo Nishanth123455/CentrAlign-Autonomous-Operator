@@ -92,54 +92,56 @@ Detect mismatch → require human approval → stop when approval is rejected
 
 ## Architecture
 
-    User Request
-         |
-         v
-    Task Understanding
-         |
-         v
-    Task Planner
-         |
-         v
-    Company Context + Company Data
-         |
-         v
-    Policy Engine
-         |
-         +-----------------------------+
-         |                             |
-         v                             v
-    Automatic Processing       Human Approval
-         |                             |
-         +-------------+---------------+
-                       |
-                       v
-                 Tool Executor
-                       |
-              +--------+--------+
-              |                 |
-              v                 v
-       Company Data        Browser Tool
-                                |
-                             Playwright
-                                |
-                                v
-                         Finance Portal
-                                |
-                                v
-                           Observation
-                                |
-                                v
-                         Recovery / Adapt
-                                |
-                                v
-                           Verification
-                                |
-                                v
-                           Audit Trail
-                                |
-                                v
-                           Final Result
+<pre>
+User Request
+     |
+     v
+Task Understanding
+     |
+     v
+Task Planner
+     |
+     v
+Company Context + Company Data
+     |
+     v
+Policy Engine
+     |
+     +-----------------------------+
+     |                             |
+     v                             v
+Automatic Processing       Human Approval
+     |                             |
+     +-------------+---------------+
+                   |
+                   v
+             Tool Executor
+                   |
+          +--------+--------+
+          |                 |
+          v                 v
+   Company Data       Browser Tool
+                          |
+                       Playwright
+                          |
+                          v
+                  Finance Portal
+                          |
+                          v
+                     Observation
+                          |
+                          v
+                    Recovery / Adapt
+                          |
+                          v
+                     Verification
+                          |
+                          v
+                     Audit Trail
+                          |
+                          v
+                     Final Result
+</pre>
 
 ## Main Components
 
@@ -300,7 +302,9 @@ Each task produces a persistent JSON audit report containing information such as
 
 Audit reports are stored in:
 
-    company/data/audit/
+<pre>
+company/data/audit/
+</pre>
 
 ## Technology Stack
 
@@ -319,15 +323,15 @@ Create and activate a Python virtual environment.
 
 Install project dependencies:
 
-    python -m pip install -r requirements.txt
+`python -m pip install -r requirements.txt`
 
 Install the Playwright Chromium browser:
 
-    python -m playwright install chromium
+`python -m playwright install chromium`
 
 Create a `.env` file in the project root containing:
 
-    GEMINI_API_KEY=your_gemini_api_key
+`GEMINI_API_KEY=your_gemini_api_key`
 
 Do not commit the `.env` file or API keys to GitHub.
 
@@ -337,25 +341,25 @@ Do not commit the `.env` file or API keys to GitHub.
 
 Run:
 
-    portal/app.py
+`portal/app.py`
 
 The finance portal runs at:
 
-    http://127.0.0.1:5000
+`http://127.0.0.1:5000`
 
 ### 2. Start the autonomous operator
 
 Run:
 
-    app/ui/operator_app.py
+`app/ui/operator_app.py`
 
 The operator interface runs at:
 
-    http://127.0.0.1:5001
+`http://127.0.0.1:5001`
 
 Open the operator interface in a browser and submit a task such as:
 
-    Process invoice INV1001 from Acme Supplies.
+`Process invoice INV1001 from Acme Supplies.`
 
 ## Testing
 
@@ -380,34 +384,36 @@ The `tests` directory contains component and integration tests covering:
 
 ## Project Structure
 
-    CentrAlign-Autonomous-Operator/
-    ├── app/
-    │   ├── agent/
-    │   ├── models/
-    │   ├── retrieval/
-    │   ├── tools/
-    │   ├── ui/
-    │   │   ├── templates/
-    │   │   │   └── operator.html
-    │   │   └── operator_app.py
-    │   └── verification/
-    ├── company/
-    │   ├── data/
-    │   │   ├── audit/
-    │   │   ├── invoice_records.csv
-    │   │   ├── purchase_orders.csv
-    │   │   └── vendors.csv
-    │   ├── invoices/
-    │   ├── policies/
-    │   └── purchase_orders/
-    ├── portal/
-    │   ├── app.py
-    │   └── templates/
-    ├── tests/
-    ├── .env
-    ├── .gitignore
-    ├── README.md
-    └── requirements.txt
+<pre>
+CentrAlign-Autonomous-Operator/
+├── app/
+│   ├── agent/
+│   ├── models/
+│   ├── retrieval/
+│   ├── tools/
+│   ├── ui/
+│   │   ├── templates/
+│   │   │   └── operator.html
+│   │   └── operator_app.py
+│   └── verification/
+├── company/
+│   ├── data/
+│   │   ├── audit/
+│   │   ├── invoice_records.csv
+│   │   ├── purchase_orders.csv
+│   │   └── vendors.csv
+│   ├── invoices/
+│   ├── policies/
+│   └── purchase_orders/
+├── portal/
+│   ├── app.py
+│   └── templates/
+├── tests/
+├── .env
+├── .gitignore
+├── README.md
+└── requirements.txt
+</pre>
 
 ## Limitations
 
